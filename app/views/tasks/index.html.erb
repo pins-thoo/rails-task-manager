@@ -1,26 +1,25 @@
 <div class="container">
-<h1>My Tasks</h1>
+  <h1>My Tasks</h1>
 
-<ul class="list-group d-flex flex-column">
-  <% @tasks.each do |task| %>
-  <% if task.completed == true %>
-  <li>
-    <i class="far fa-check-square"> <%= link_to task.title, task_path(task) %></i>
-    <%= link_to ('<i class="far fa-trash-alt"> </i>').html_safe, task_path(task), method: :delete, data: { confirm: "Delete #{task.title}?"} %>
-  </li>
-  <% else %>
-  <li>
-    <i class="far fa-square"> <%= link_to task.title, task_path(task) %></i>
-    <%= link_to ('<i class="far fa-trash-alt"> </i>').html_safe, task_path(task), method: :delete, data: { confirm: "Delete #{task.title}?"} %>
-  </li>
-  <% end %>
-  <% end %>
-</ul>
+  <ul class="list-group d-flex flex-column list-group-flush">
+    <% @tasks.each do |task| %>
+    <% if task.completed == true %>
+    <li class="list-group-item">
+      <i class="far fa-check-square"> <%= link_to task.title, task_path(task) %> </i>
+      <%= link_to ('<i class="far fa-trash-alt"> </i>').html_safe, task_path(task), method: :delete, data: { confirm: "Delete #{task.title}?"} %>
+    </li>
+    <% else %>
+    <li class="list-group-item">
+      <i class="far fa-square"> <%= link_to task.title, task_path(task) %> </i>
+      <%= link_to ('<i class="far fa-trash-alt"> </i>').html_safe, task_path(task), method: :delete, data: { confirm: "Delete #{task.title}?"} %>
+    </li>
+    <% end %>
+    <% end %>
+  </ul>
 
-<hr>
 
-<p><%= link_to ('<i class="fas fa-plus"> Add a new task</i>').html_safe, new_task_path %></p>
+  <p class="add"><%= link_to ('<i class="fas fa-plus"> Add a new task</i>').html_safe, new_task_path %></p>
 
-</hr>
+
 
 </div>
